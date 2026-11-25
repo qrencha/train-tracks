@@ -49,6 +49,20 @@ const tracksMatrix = {
 const tracksMatrix = {
     rows:3,
     cols:3,
+    start: {row:1, col:2},
+    end: {row:3, col:2},
+    rowCounts: [1,1,1],
+    colCounts: [0,3,0],
+    trackPath:[
+        {row:3,col:2,type:"STRAIGHT",direction:"DOWN"},
+        {row:2,col:2,type:"STRAIGHT",direction:"DOWN"},
+        {row:1,col:2,type:"STRAIGHT",direction:"DOWN"}
+    ]
+}
+
+const tracksMatrix = {
+    rows:3,
+    cols:3,
     start: {row:3, col:3},
     end: {row:3, col:1},
     rowCounts: [2,3,2],
@@ -84,6 +98,47 @@ const tracksMatrix = {
     ]
 }
 
+
+const tracksMatrix = {
+    rows:MESHROWS,
+    cols:MESHCOLUMNS,
+    start: {row:4, col:3},
+    end: {row:4, col:1},
+    rowCounts: [2,3,2,2],
+    colCounts: [4,2,3,0],
+    trackPath:[
+        {row:4,col:3,type:"STRAIGHT",direction:"UP"},
+        {row:3,col:3,type:"STRAIGHT",direction:"UP"},
+        {row:2,col:3,type:"CURVE",direction:"LEFTFROMDOWN"},
+        {row:2,col:2,type:"CURVE",direction:"UPFROMRIGHT"},
+        {row:1,col:2,type:"CURVE",direction:"LEFTFROMDOWN"},
+        {row:1,col:1,type:"CURVE",direction:"DOWNFROMRIGHT"},
+        {row:2,col:1,type:"STRAIGHT",direction:"DOWN"},
+        {row:3,col:1,type:"STRAIGHT",direction:"DOWN"},
+        {row:4,col:1,type:"STRAIGHT",direction:"DOWN"}
+    ]
+}
+
+const tracksMatrix = {
+    rows:MESHROWS,
+    cols:MESHCOLUMNS,
+    start: {row:5, col:5},
+    end: {row:5, col:1},
+    rowCounts: [2,3,2,2,2],
+    colCounts: [4,2,3,1,2],
+    trackPath:[
+        {row:5,col:5,type:"STRAIGHT",direction:"UP"},
+        {row:4,col:3,type:"STRAIGHT",direction:"UP"},
+        {row:3,col:3,type:"STRAIGHT",direction:"UP"},
+        {row:2,col:3,type:"CURVE",direction:"LEFTFROMDOWN"},
+        {row:2,col:2,type:"CURVE",direction:"UPFROMRIGHT"},
+        {row:1,col:2,type:"CURVE",direction:"LEFTFROMDOWN"},
+        {row:1,col:1,type:"CURVE",direction:"DOWNFROMRIGHT"},
+        {row:2,col:1,type:"STRAIGHT",direction:"DOWN"},
+        {row:3,col:1,type:"STRAIGHT",direction:"DOWN"},
+        {row:4,col:1,type:"STRAIGHT",direction:"DOWN"}
+    ]
+}
 
 type:"STRAIGHT",direction:"UP"
 type:"STRAIGHT",direction:"DOWN"

@@ -70,6 +70,7 @@ class TrackMesh {
         for (let r = 0; r < this.rows; r++) {
             for (let c = 0; c < this.cols; c++) {
                 // noFill();
+                strokeWeight(1)
                 square(c * this.cellWidth, r * this.cellWidth, this.cellWidth)
             }
         }

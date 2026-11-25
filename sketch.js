@@ -1,21 +1,33 @@
-const MESHROWS = 3;
-const MESHCOLUMNS = 3;
+const MESHROWS = 5;
+const MESHCOLUMNS = 5;
 let matrixWidth, matrixHeight, cellWidth, cellHeight, halfCell;
 const tracksMatrix = {
-    rows:3,
-    cols:3,
-    start: {row:3, col:3},
-    end: {row:3, col:1},
-    rowCounts: [2,3,2],
-    colCounts: [3,2,2],
-    trackPath:[
-        {row:3,col:3,type:"STRAIGHT",direction:"UP"},
-        {row:2,col:3,type:"CURVE",direction:"LEFTFROMDOWN"},
-        {row:2,col:2,type:"CURVE",direction:"UPFROMRIGHT"},
-        {row:1,col:2,type:"CURVE",direction:"LEFTFROMDOWN"},
-        {row:1,col:1,type:"CURVE",direction:"DOWNFROMRIGHT"},
-        {row:2,col:1,type:"STRAIGHT",direction:"DOWN"},
-        {row:3,col:1,type:"STRAIGHT",direction:"DOWN"}
+    rows: MESHROWS,
+    cols: MESHCOLUMNS,
+    start: { row: 5, col: 5 },
+    end: { row: 5, col: 1 },
+    rowCounts: [4, 3, 5, 4, 3],
+    colCounts: [5, 3, 3, 5, 3],
+    trackPath: [
+        { row: 5, col: 5, type: "STRAIGHT", direction: "LEFT" },
+        { row: 5, col: 4, type: "CURVE", direction: "UPFROMRIGHT" },
+        { row: 4, col: 4, type: "STRAIGHT", direction: "UP" },
+        { row: 3, col: 4, type: "CURVE", direction: "RIGHTFROMDOWN" },
+        { row: 3, col: 5, type: "CURVE", direction: "UPFROMLEFT" },
+        { row: 2, col: 5, type: "CURVE", direction: "LEFTFROMDOWN" },
+        { row: 2, col: 4, type: "CURVE", direction: "UPFROMRIGHT" },
+        { row: 1, col: 4, type: "CURVE", direction: "LEFTFROMDOWN" },
+        { row: 1, col: 3, type: "STRAIGHT", direction: "LEFT" },
+        { row: 1, col: 2, type: "STRAIGHT", direction: "LEFT" },
+        { row: 1, col: 1, type: "CURVE", direction: "DOWNFROMRIGHT" },
+        { row: 2, col: 1, type: "STRAIGHT", direction: "DOWN" },
+        { row: 3, col: 1, type: "CURVE", direction: "RIGHTFROMUP" },
+        { row: 3, col: 2, type: "STRAIGHT", direction: "RIGHT" },
+        { row: 3, col: 3, type: "CURVE", direction: "DOWNFROMLEFT" },
+        { row: 4, col: 3, type: "CURVE", direction: "LEFTFROMUP" },
+        { row: 4, col: 2, type: "STRAIGHT", direction: "LEFT" },
+        { row: 4, col: 1, type: "CURVE", direction: "DOWNFROMRIGHT" },
+        { row: 5, col: 1, type: "STRAIGHT", direction: "DOWN" }
     ]
 };
 
@@ -27,11 +39,10 @@ for (const step of tracksMatrix.trackPath) {
 }
 
 function setup() {
-    createCanvas(600, 600);
-    // rectMode(CENTER)
-    cellWidth = width/MESHCOLUMNS;
-    cellHeight = width/MESHROWS;
-    halfCell = cellWidth/2;
+    createCanvas(800, 800);
+    cellWidth = width / MESHCOLUMNS;
+    cellHeight = width / MESHROWS;
+    halfCell = cellWidth / 2;
 
     mesh = new TrackMesh(tracksMatrix);
     mesh.showMesh();
