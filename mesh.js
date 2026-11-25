@@ -14,7 +14,7 @@ class TrackMesh {
                 cell
             ])
         );
-        this.cellWidth = width / MESHCOLUMNS;
+        this.cellWidth = width / MESHCOLUMNS-10;
         // console.log(this.trackPath)
 
     }
@@ -78,12 +78,12 @@ class TrackMesh {
 
     showCounts(){
         for(let r=0; r<this.rows;r++){
-            textSize(30)
+            textSize(36)
             text(this.rowCounts[r],width-20,this.cellWidth*r+this.cellWidth/2)
         }
         for(let c=0; c<this.cols;c++){
-            textSize(30)
-            text(this.colCounts[c],this.cellWidth*c+this.cellWidth/2, height-20)
+            textSize(36)
+            text(this.colCounts[c],this.cellWidth*c+this.cellWidth/2, height)
         }
     }
 
