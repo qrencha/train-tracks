@@ -18,6 +18,32 @@
 </head>
 
 <body>
+  <div id="inputMesh">
+
+    <label>
+      Rows:
+      <input id="rows" type="number" min="1" value="4">
+    </label>
+
+    <label>
+      Columns:
+      <input id="cols" type="number" min="1" value="4">
+    </label>
+
+  </div>
+  <div>
+    <select id="startEdge">
+      <option>BOTTOM</option>
+      <option>TOP</option>
+      <option>LEFT</option>
+      <option>RIGHT</option>
+    </select>
+  </div>
+  <div>
+    <button id="createMeshButton" onclick="createMesh()">Create Mesh
+    </button>
+  </div>
+
 </body>
 
 </html>

@@ -14,7 +14,7 @@ class TrackMesh {
                 cell
             ])
         );
-        this.cellWidth = width / MESHCOLUMNS-10;
+        this.cellWidth = width / MESHCOLUMNS - 10;
         // console.log(this.trackPath)
 
     }
@@ -32,35 +32,34 @@ class TrackMesh {
     }
 
     layTrack() {
-
         for (const track of this.trackPath) {
             // console.log(track.col, track.row, track.direction)
             // square((track.col - 1) * this.cellWidth, (track.row - 1) * this.cellWidth, this.cellWidth)
             if (track.type == "CURVE") {
-                let cell = new Track('curve',this.cellWidth);
-                if (track.direction == "LEFTFROMDOWN"||track.direction == "DOWNFROMLEFT") {
+                let cell = new Track('curve', this.cellWidth);
+                if (track.direction == "LEFTFROMDOWN" || track.direction == "DOWNFROMLEFT") {
                     // 90 degrees counter-clockwise
                     cell.build((track.col - 1) * this.cellWidth + this.cellWidth / 2, (track.row - 1) * this.cellWidth + this.cellWidth / 2, -HALF_PI)
                 }
-                if (track.direction == "LEFTFROMUP"||track.direction == "UPFROMLEFT") {
+                if (track.direction == "LEFTFROMUP" || track.direction == "UPFROMLEFT") {
                     // 90 degrees counter-clockwise
                     cell.build((track.col - 1) * this.cellWidth + this.cellWidth / 2, (track.row - 1) * this.cellWidth + this.cellWidth / 2, 0)
                 }
-                if (track.direction == "UPFROMRIGHT"||track.direction == "RIGHTFROMUP") {
+                if (track.direction == "UPFROMRIGHT" || track.direction == "RIGHTFROMUP") {
                     // 90 degrees clockwise
                     cell.build((track.col - 1) * this.cellWidth + this.cellWidth / 2, (track.row - 1) * this.cellWidth + this.cellWidth / 2, HALF_PI)
                 }
-                if (track.direction == "DOWNFROMRIGHT"||track.direction == "RIGHTFROMDOWN") {
+                if (track.direction == "DOWNFROMRIGHT" || track.direction == "RIGHTFROMDOWN") {
                     // 180 degrees clockwise or counter-clockwise
                     cell.build((track.col - 1) * this.cellWidth + this.cellWidth / 2, (track.row - 1) * this.cellWidth + this.cellWidth / 2, PI)
                 }
             }
             if (track.type == "STRAIGHT") {
-                let cell = new Track('straight',this.cellWidth);
-                if (track.direction == "LEFT"||track.direction == "RIGHT") {
+                let cell = new Track('straight', this.cellWidth);
+                if (track.direction == "LEFT" || track.direction == "RIGHT") {
                     cell.build((track.col - 1) * this.cellWidth + this.cellWidth / 2, (track.row - 1) * this.cellWidth + this.cellWidth / 2, HALF_PI)
                 }
-                if (track.direction == "UP"||track.direction == "DOWN") {
+                if (track.direction == "UP" || track.direction == "DOWN") {
                     cell.build((track.col - 1) * this.cellWidth + this.cellWidth / 2, (track.row - 1) * this.cellWidth + this.cellWidth / 2, 0)
                 }
             }
@@ -76,15 +75,29 @@ class TrackMesh {
         }
     }
 
-    showCounts(){
-        for(let r=0; r<this.rows;r++){
+    showCounts() {
+        for (let r = 0; r < this.rows; r++) {
             textSize(36)
-            text(this.rowCounts[r],width-20,this.cellWidth*r+this.cellWidth/2)
+            text(this.rowCounts[r], width - 20, this.cellWidth * r + this.cellWidth / 2)
         }
-        for(let c=0; c<this.cols;c++){
+        for (let c = 0; c < this.cols; c++) {
             textSize(36)
-            text(this.colCounts[c],this.cellWidth*c+this.cellWidth/2, height)
+            text(this.colCounts[c], this.cellWidth * c + this.cellWidth / 2, height)
         }
+    }
+    
+    getNeighbors(row, col) {
+        const neighbors = [];
+
+        if (this.hasTrack(row, col)) {
+            if (row > 1) neighbors.push({ row: row - 1, col });
+            if (row < this.rows) neighbors.push({ row: row + 1, col });
+            if (col > 1) neighbors.push({ row, col: col - 1 });
+            if (col < this.cols) neighbors.push({ row, col: col + 1 });
+            return neighbors;
+        } else
+            return "NAT" //not a track
+
     }
 
 }

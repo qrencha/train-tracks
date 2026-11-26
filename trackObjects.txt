@@ -1,3 +1,6 @@
+// The following are examples of trackMatrix Objects. The rows and cols parameters might be given the MESHROWS and MESHCOLS constants
+
+
 const tracksMatrix = {
     rows:3,
     cols:3,
@@ -100,8 +103,8 @@ const tracksMatrix = {
 
 
 const tracksMatrix = {
-    rows:MESHROWS,
-    cols:MESHCOLUMNS,
+    rows:4,
+    cols:4,
     start: {row:4, col:3},
     end: {row:4, col:1},
     rowCounts: [2,3,2,2],
@@ -120,15 +123,19 @@ const tracksMatrix = {
 }
 
 const tracksMatrix = {
-    rows:MESHROWS,
-    cols:MESHCOLUMNS,
+    rows:5,
+    cols:5,
     start: {row:5, col:5},
-    end: {row:5, col:1},
-    rowCounts: [2,3,2,2,2],
-    colCounts: [4,2,3,1,2],
+    end: {row:5, col:2},
+    rowCounts: [2,3,4,4,3],
+    colCounts: [5,3,3,2,3],
     trackPath:[
         {row:5,col:5,type:"STRAIGHT",direction:"UP"},
-        {row:4,col:3,type:"STRAIGHT",direction:"UP"},
+        {row:4,col:5,type:"STRAIGHT",direction:"UP"},
+        {row:3,col:5,type:"CURVE",direction:"LEFTFROMDOWN"},
+        {row:3,col:4,type:"CURVE",direction:"DOWNFROMRIGHT"},
+        {row:4,col:4,type:"CURVE",direction:"LEFTFROMUP"},
+        {row:4,col:3,type:"CURVE",direction:"UPFROMRIGHT"},
         {row:3,col:3,type:"STRAIGHT",direction:"UP"},
         {row:2,col:3,type:"CURVE",direction:"LEFTFROMDOWN"},
         {row:2,col:2,type:"CURVE",direction:"UPFROMRIGHT"},
@@ -136,7 +143,51 @@ const tracksMatrix = {
         {row:1,col:1,type:"CURVE",direction:"DOWNFROMRIGHT"},
         {row:2,col:1,type:"STRAIGHT",direction:"DOWN"},
         {row:3,col:1,type:"STRAIGHT",direction:"DOWN"},
-        {row:4,col:1,type:"STRAIGHT",direction:"DOWN"}
+        {row:4,col:1,type:"STRAIGHT",direction:"DOWN"},
+        {row:5,col:1,type:"CURVE",direction:"RIGHTFROMUP"},
+        {row:5,col:2,type:"CURVE",direction:"DOWNFROMLEFT"}
+    ]
+}
+
+
+const tracksMatrix = {
+    rows: 5,
+    cols: 6,
+    start: { row: 5, col: 6 },
+    end: { row: 6, col: 6 },
+    rowCounts: [4, 3, 5, 4, 4, 3, 4, 3],
+    colCounts: [7, 4, 5, 6, 6, 2],
+    trackPath: [
+        { row: 5, col: 6, type: "STRAIGHT", direction: "LEFT" },
+        { row: 5, col: 5, type: "STRAIGHT", direction: "LEFT" },
+        { row: 5, col: 4, type: "CURVE", direction: "UPFROMRIGHT" },
+        { row: 4, col: 4, type: "STRAIGHT", direction: "UP" },
+        { row: 3, col: 4, type: "CURVE", direction: "RIGHTFROMDOWN" },
+        { row: 3, col: 5, type: "CURVE", direction: "UPFROMLEFT" },
+        { row: 2, col: 5, type: "CURVE", direction: "LEFTFROMDOWN" },
+        { row: 2, col: 4, type: "CURVE", direction: "UPFROMRIGHT" },
+        { row: 1, col: 4, type: "CURVE", direction: "LEFTFROMDOWN" },
+        { row: 1, col: 3, type: "STRAIGHT", direction: "LEFT" },
+        { row: 1, col: 2, type: "STRAIGHT", direction: "LEFT" },
+        { row: 1, col: 1, type: "CURVE", direction: "DOWNFROMRIGHT" },
+        { row: 2, col: 1, type: "STRAIGHT", direction: "DOWN" },
+        { row: 3, col: 1, type: "CURVE", direction: "RIGHTFROMUP" },
+        { row: 3, col: 2, type: "STRAIGHT", direction: "RIGHT" },
+        { row: 3, col: 3, type: "CURVE", direction: "DOWNFROMLEFT" },
+        { row: 4, col: 3, type: "CURVE", direction: "LEFTFROMUP" },
+        { row: 4, col: 2, type: "STRAIGHT", direction: "LEFT" },
+        { row: 4, col: 1, type: "CURVE", direction: "DOWNFROMRIGHT" },
+        { row: 5, col: 1, type: "STRAIGHT", direction: "DOWN" },
+        { row: 6, col: 1, type: "STRAIGHT", direction: "DOWN" },
+        { row: 7, col: 1, type: "CURVE", direction: "RIGHTFROMUP" },
+        { row: 7, col: 2, type: "STRAIGHT", direction: "RIGHT" },
+        { row: 7, col: 3, type: "CURVE", direction: "DOWNFROMLEFT" },
+        { row: 8, col: 3, type: "CURVE", direction: "RIGHTFROMUP" },
+        { row: 8, col: 4, type: "STRAIGHT", direction: "RIGHT" },
+        { row: 8, col: 5, type: "CURVE", direction: "UPFROMLEFT" },
+        { row: 7, col: 5, type: "STRAIGHT", direction: "UP" },
+        { row: 6, col: 5, type: "CURVE", direction: "RIGHTFROMDOWN" },
+        { row: 6, col: 6, type: "STRAIGHT", direction: "RIGHT" }
     ]
 }
 
